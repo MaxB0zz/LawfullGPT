@@ -69,7 +69,9 @@ if __name__ == "__main__":
                     # / => Article de la jurisprudence
                     link_to_jp = article.find_element(By.CSS_SELECTOR, "a")
                     link_to_jp.click()
-
+                    all_text = WebDriverWait(driver, 10).until(
+                        EC.presence_of_element_located((By.CLASS_NAME, "main-col"))
+                    )
                     driver.back()
                     # \ article
 
