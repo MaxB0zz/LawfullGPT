@@ -66,9 +66,15 @@ if __name__ == "__main__":
                     )
                     articles = jp_main.find_elements(By.CLASS_NAME, "result-item")
                     article = articles[article_i]
+                    # / => Article de la jurisprudence
                     link_to_jp = article.find_element(By.CSS_SELECTOR, "a")
-            driver.back()
-            # \ Jurisprudence
+                    link_to_jp.click()
+
+                    driver.back()
+                    # \ article
+
+                # TODO : click on "next" page
+            # TODO : click on "home" button
     finally:
         driver.quit()
         push_to_json(data)
